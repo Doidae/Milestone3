@@ -17,6 +17,7 @@
   color: white;
 }
 .navbar-button {
+  text-decoration: none;
   background-color: #555;
   color: white;
   border: none;
@@ -26,6 +27,7 @@
   border-radius: 5px;
 }
 .navbar-button2 {
+  text-decoration: none;
   background-color: rgba(151, 151, 24, 0.568);
   color: white;
   border: none;
