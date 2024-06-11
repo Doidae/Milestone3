@@ -5,8 +5,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const User = require('./models/userSchema')
+
+const SECRETKEY = process.env.KEY
 
 const app = express();
 
@@ -54,3 +57,22 @@ app.get('/register', async (req,res) => {
     }
 })
 
+//GET THE LOGIN
+
+app.post('/login', async (req, res) => {
+    try {
+        const {username, password } = req.body
+        const user = await User.findOne({username})
+        if (!user) {
+            return res.status(401).json({error: 'Invalid Login'})
+        }
+        const isPasswordCorrect = await bcrypt.compare(password, user.password)
+        if(!isPasswordCorrect) {
+            return res.status(401).json({error: 'Invalid Login'})
+        }
+        const token = jwt.sign({userId: user._id }, SECRETKEY, {expiresIn: '2hr'})
+        res.json({message: 'Successful Login'})
+    } catch (error) {
+        res.status(500).json({error: 'Login Error'})
+    }
+})
