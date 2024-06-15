@@ -30,4 +30,3 @@ Achievement sorting website. This project is built using modern web technologies
 
 ### Installation
 1. Clone the repository:
-   ```bash
