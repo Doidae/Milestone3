@@ -1,0 +1,47 @@
+/* HomePage.css */
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+}
+
+
+
+.homepage-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+    background-color: #444141;
+    color: white;
+}
+
+.intro-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.intro-container h1 {
+    margin-bottom: 10px;
+}
+
+.intro-container p {
+    margin-bottom: 20px;
+}
+
+.sign-up-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.image-container {
+    flex: 1;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
